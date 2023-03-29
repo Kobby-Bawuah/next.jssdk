@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 function HomePage() {
   return <div>
-    <div>Welcome to Next.js!</div>
+    <div>Welcome to Next.js! for testing of suspect commit</div>
     <button
     type="button"
     onClick={() => {
