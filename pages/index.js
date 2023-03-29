@@ -11,7 +11,7 @@ function HomePage() {
     <button
     type="button"
     onClick={() => {
-      throw new Error("Sentry Frontend Error number 2");
+      throw new Error("Sentry Frontend Error number 3");
     }}
     >
       Throw error
