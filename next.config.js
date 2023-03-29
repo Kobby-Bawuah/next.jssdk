@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+// module.exports = nextConfig
 
 // This file sets a custom webpack configuration to use your Next.js app
 // with Sentry.
@@ -22,7 +22,7 @@ const moduleExports = {
     // https://webpack.js.org/configuration/devtool/ and
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map
     // for more information.
-    hideSourceMaps: true,
+    hideSourceMaps: false,
   },
 };
 
@@ -32,7 +32,7 @@ const sentryWebpackPluginOptions = {
   // recommended:
   //   release, url, org, project, authToken, configFile, stripPrefix,
   //   urlPrefix, include, ignore
-  release: "frantest2nd",
+  release: "100",
 
   silent: true, // Suppresses all logs
   // For all available options, see:
