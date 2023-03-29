@@ -15,7 +15,7 @@ Sentry.init({
   
   beforeSend(event) {
     // Modify or drop the event here
-    culprit="my_custom_culprit"
+    // culprit="my_custom_culprit"
     console.log(event);
     return event;
 
