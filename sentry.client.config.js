@@ -27,7 +27,7 @@ Sentry.init({
   replaysOnErrorSampleRate: 1.0,
 
   // release: "12",
-  release: "101",
+  release: "102",
   integrations: [
     new Sentry.BrowserTracing({
       tracingOrigins: ["localhost", /^\//, /.*\.convex.cloud/],
