@@ -44,3 +44,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 sentry-cli releases set-commits "2a57b095fa2591c5fe9f1882255d5a68fd65c9f9" --commit "Kobby-Bawuah/remixvercel@2a57b095fa25" --log-level=debug
 
 sentry-cli releases set-commits --auto "101" --log-level=debug
+
+sentry-cli releases files "101" upload-sourcemaps ./public
+
+sentry-cli releases new
+
+To make the script excecutable -> chmod +x ratelimit.sh
+To run file for rate limit-> ./ratelimit.sh
