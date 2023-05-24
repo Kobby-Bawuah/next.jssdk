@@ -54,6 +54,10 @@ function HomePage() {
           Link to test route <Link href="/post/test"> RAHHHH </Link>
         </h1>
 
+        <h1 className="title1">
+          Link to test route with Error<Link href="/post/myEndpoint"> RATatata </Link>
+        </h1>
+
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
