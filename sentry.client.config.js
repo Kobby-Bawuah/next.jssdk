@@ -23,11 +23,11 @@ Sentry.init({
 
   tracesSampleRate: 1.0,
   // tunnel: "/api/sentry", 
-  replaysSessionSampleRate: 1.0,
+  replaysSessionSampleRate: 0,
   replaysOnErrorSampleRate: 1.0,
 
   // release: "12",
-  release: "102",
+  release: "9.2.2",
   integrations: [
     new Sentry.BrowserTracing({
       tracingOrigins: ["localhost", /^\//, /.*\.convex.cloud/],
@@ -48,6 +48,18 @@ Sentry.init({
   // `release` value here - use the environment variable `SENTRY_RELEASE`, so
   // that it will also get attached to your source maps
   debug: true,
+  // beforeSendTransaction(event) {
+  //   // Modify or drop the event here
+  //   //Set condition to find browser experiences metric
+  //   if (event.transaction) {
+  //     console.log("Transaction output!!!!!!!!!!!!!!");
+  //     console.log(event.spans);
+  //     //Throw an error
+  //     throw new Error("transacion parameter was hit!!!");
+  //     //Sentry.captureMessage("Something went wrong");
+  //   }
+  //   return event;
+  // },
 });
 
 const currentUserInfo = {

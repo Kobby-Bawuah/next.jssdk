@@ -3,6 +3,7 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import * as Sentry from '@sentry/nextjs';
+import { ProfilingIntegration } from "@sentry/profiling-node";
 
 const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 
@@ -10,6 +11,11 @@ Sentry.init({
   dsn: SENTRY_DSN || 'https://eea52d86a96740cb925b76ec56f894e2@o1145044.ingest.sentry.io/4504053104312320',
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1.0,
+  profilesSampleRate: 1.0, // Profiling sample rate is relative to tracesSampleRate
+  integrations: [
+    // Add profiling integration to list of integrations
+    new ProfilingIntegration(),
+  ],
   release: "102",
   // ...
   // Note: if you want to override the automatic release value, do not set a
