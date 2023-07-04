@@ -23,6 +23,11 @@ const moduleExports = {
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map
     // for more information.
     hideSourceMaps: false,
+    widenClientFileUpload: true,
+    hideSourceMaps: true,
+    disableServerWebpackPlugin: false,
+    disableClientWebpackPlugin: false,
+
   },
 };
 
@@ -32,9 +37,10 @@ const sentryWebpackPluginOptions = {
   // recommended:
   //   release, url, org, project, authToken, configFile, stripPrefix,
   //   urlPrefix, include, ignore
-  release: "9.2.2",
+  release: "9.1.1",
 
   silent: false, // Suppresses all logs
+  ignore: [],
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };

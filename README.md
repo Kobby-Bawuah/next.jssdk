@@ -49,5 +49,9 @@ sentry-cli releases files "101" upload-sourcemaps ./public
 
 sentry-cli releases new
 
+last version I know works 7.53.0 
+
+
+
 To make the script excecutable -> chmod +x ratelimit.sh
 To run file for rate limit-> ./ratelimit.sh
