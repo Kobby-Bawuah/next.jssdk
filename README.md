@@ -59,4 +59,4 @@ To run file for rate limit-> ./ratelimit.sh
 
 
 
-/* bawuah10@hotmail.com
+*.js kobby.bawuah@sentry.io
