@@ -6,14 +6,12 @@ import * as Sentry from '@sentry/nextjs';
 // import * as Sentry from '@sentry/browser';
 import { RewriteFrames } from "@sentry/integrations";
 
-
-
 const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 
 Sentry.init({
   dsn: SENTRY_DSN || 'https://eea52d86a96740cb925b76ec56f894e2@o1145044.ingest.sentry.io/4504053104312320',
   // Adjust this value in production, or use tracesSampler for greater control
-
+  environment: "production",
   beforeSend(event) {
     // Modify or drop the event here
     // culprit="my_custom_culprit"
@@ -84,6 +82,8 @@ Sentry.setContext("character", {
   event: "auth",
   password: "rahh"
 });
+
+console.log('Test to see if file is respected')
 
 // Sentry.setUser({ email: "fran.doe@example.com", username: "Bigfran" });
 
