@@ -8,7 +8,7 @@ const Hello = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/hello'); // Calling the API route
+        const response = await fetch('/api/myEndpoint2'); // Calling the API route
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {

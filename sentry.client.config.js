@@ -2,27 +2,32 @@
 // The config you add here will be used whenever a page is visited.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import * as Sentry from '@sentry/nextjs';
+import * as Sentry from "@sentry/nextjs";
 // import * as Sentry from '@sentry/browser';
 import { RewriteFrames } from "@sentry/integrations";
 
 const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 
 Sentry.init({
-  dsn: SENTRY_DSN || 'https://eea52d86a96740cb925b76ec56f894e2@o1145044.ingest.sentry.io/4504053104312320',
+  dsn:
+    SENTRY_DSN ||
+    "https://eea52d86a96740cb925b76ec56f894e2@o1145044.ingest.sentry.io/4504053104312320",
+
+  //Personal Sentry
+  // dsn: "http://2644943064430057e3f92d0cb2871dec@127.0.0.1:8000/8",
+
   // Adjust this value in production, or use tracesSampler for greater control
   environment: "production",
-  beforeSend(event) {
-    // Modify or drop the event here
-    // culprit="my_custom_culprit"
-    console.log(event);
+  beforeSend(event, hint) {
+    // if (event.exception) {
+    //   Sentry.showReportDialog({ eventId: event.event_id });
+    // }
     return event;
-
   },
 
   tracesSampleRate: 1.0,
-  // tunnel: "/api/sentry", 
-  replaysSessionSampleRate: 0,
+  // tunnel: "/api/sentry",
+  replaysSessionSampleRate: 1,
   replaysOnErrorSampleRate: 1.0,
 
   // release: "12",
@@ -43,6 +48,9 @@ Sentry.init({
       // Additional SDK configuration goes in here, for example:
       maskAllText: false,
       blockAllMedia: false,
+      networkDetailAllowUrls: ["http://127.0.0.1:8000/api/food"],
+      networkRequestHeaders: ["X-Custom-Header"],
+      networkResponseHeaders: ["X-Custom-Header"],
     }),
   ],
   // integrations: [new Sentry.Replay({
@@ -71,8 +79,8 @@ Sentry.init({
 
 const currentUserInfo = {
   id: 45663,
-  email: "test.doe@example.com"
-}
+  email: "test.doe@example.com",
+};
 Sentry.setUser({ id: currentUserInfo?.id, email: currentUserInfo?.email });
 
 Sentry.setContext("character", {
@@ -80,10 +88,12 @@ Sentry.setContext("character", {
   age: 19,
   attack_type: "melee",
   event: "auth",
-  password: "rahh"
+  password: "rahh",
 });
 
-console.log('Test to see if file is respected')
+console.log("Test to see if file is respected");
+
+// throw new Error("This is an unhandled error");
 
 // Sentry.setUser({ email: "fran.doe@example.com", username: "Bigfran" });
 

@@ -29,6 +29,9 @@ const moduleExports = {
     disableClientWebpackPlugin: false,
 
   },
+  experimental: {
+    instrumentationHook: true,
+  },
 };
 
 const sentryWebpackPluginOptions = {
